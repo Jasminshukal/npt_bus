@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Branch;
-use App\Models\Expense;
-use Illuminate\Http\Request;
 use App\Models\Bus;
+use Illuminate\Http\Request;
 
-class ExpenseController extends Controller
+class BusController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +14,7 @@ class ExpenseController extends Controller
      */
     public function index()
     {
-        $buses=Bus::all();
-        $branches=Branch::all();
-        return view('expanse.index',compact('buses','branches'));
+        //
     }
 
     /**
@@ -45,10 +41,10 @@ class ExpenseController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Expense  $expense
+     * @param  \App\Models\Bus  $bus
      * @return \Illuminate\Http\Response
      */
-    public function show(Expense $expense)
+    public function show(Bus $bus)
     {
         //
     }
@@ -56,10 +52,10 @@ class ExpenseController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Expense  $expense
+     * @param  \App\Models\Bus  $bus
      * @return \Illuminate\Http\Response
      */
-    public function edit(Expense $expense)
+    public function edit(Bus $bus)
     {
         //
     }
@@ -68,10 +64,10 @@ class ExpenseController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Expense  $expense
+     * @param  \App\Models\Bus  $bus
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Expense $expense)
+    public function update(Request $request, Bus $bus)
     {
         //
     }
@@ -79,10 +75,10 @@ class ExpenseController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Expense  $expense
+     * @param  \App\Models\Bus  $bus
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Expense $expense)
+    public function destroy(Bus $bus)
     {
         //
     }
