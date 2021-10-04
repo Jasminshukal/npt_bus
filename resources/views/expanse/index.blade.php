@@ -50,7 +50,7 @@
                                     <a href="" class="btn btn-primary btn-circle "><i class="fas fa-edit"></i></a>
                                     <a href="" title="{{ $item->remark}}" class="btn btn-success btn-circle "><i class="fa fa-question-circle" aria-hidden="true"></i></a>
                                     <a href="#" class="btn btn-danger btn-circle "><i class="fas fa-trash"></i></a>
-                                    {!! btn_success_a("A","#","xs","not-square") !!}
+                                    {{-- {!! btn_success_a("A","#","xs","not-square") !!} --}}
                             </td>
                         </tr>
                     @endforeach
