@@ -9,7 +9,7 @@
 </div>
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Date:15-09-2021 </h6>
+        <h6 class="m-0 font-weight-bold text-primary">Date:</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -17,7 +17,6 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>Date</th>
                         <th>Branch</th>
                         <th>Booking</th>
                         <th>Parsl</th>
@@ -28,7 +27,6 @@
                 </thead>
                 <tfoot>
                     <tr>
-                        <th>Date</th>
                         <th>Branch</th>
                         <th>Booking</th>
                         <th>Parsl</th>
@@ -38,22 +36,24 @@
                     </tr>
                 </tfoot>
                 <tbody>
-                    @foreach ($BranchExpense as $item)
+                    @foreach ($branches as $branch)
                         <tr>
-                            <td>{{ $item->expanse_date }}</td>
-                            <td>{{ $item->branch_name }}</td>
-                            <td>{{ $item->booking }}</td>
-                            <td>{{ $item->parsl}}</td>
-                            <td>{{ $item->office_expanse}}</td>
-                            <td>{{ $item->extra_income}}</td>
-                            <td>
-                                    <a href="" class="btn btn-primary btn-circle "><i class="fas fa-edit"></i></a>
-                                    <a href="" title="{{ $item->remark}}" class="btn btn-success btn-circle "><i class="fa fa-question-circle" aria-hidden="true"></i></a>
-                                    <a href="#" class="btn btn-danger btn-circle "><i class="fas fa-trash"></i></a>
-                                    {!! btn_success_a("A","#","xs","not-square") !!}
-                            </td>
+                            <td>{{ $branch->name }}</td>
+                            <td><input data-type="booking" data-branch="{{ $branch->name }}" data-bus="1" name="{{ $branch->name }}_booking" class="form-control expance expance_1" type="number"></td>
+                            <td><input data-type="parsl" data-branch="{{ $branch->name }}" data-bus="1" name="{{  $branch->name  }}_parsl" type="number" class="form-control expance"></td>
+                            <td><input data-type="officeexpance" data-branch="{{ $branch->name }}" data-bus="1" name="{{  $branch->name  }}_officeexpance" class="form-control expance" type="number"></td>
+                            <td><input data-type="extraincome" data-branch="{{ $branch->name }}" data-bus="1" name="{{  $branch->name  }}_extraincome" class="form-control expance" type="number"></td>
+                            <td><textarea class="form-control" name="{{  $branch->name  }}_remark" data-branch="7485" data-bus="1"></textarea></td>
                         </tr>
                     @endforeach
+                    <tr>
+                        <td>Total</td>
+                        <td><input class="form-control" id="1_total_booking" value="0" readonly></td>
+                        <td><input class="form-control" id="1_total_parsl" value="0" readonly></td>
+                        <td><input class="form-control" id="1_total_officeexpance" value="0" readonly></td>
+                        <td><input class="form-control" id="1_total_extraincome" value="0" readonly></td>
+                        <td></td>
+                    </tr>
                 </tbody>
             </table>
         </div>

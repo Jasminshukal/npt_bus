@@ -26,9 +26,14 @@
         Interface
     </div>
     <li class="nav-item">
-        <a class="nav-link" href="{{ route('Expense.index') }}">
+        <a class="nav-link" href="{{ route('BusExpense.index') }}">
             <i class="fas fa-fw fa-rupee-sign"></i>
-            <span>Expance</span></a>
+            <span>Bus Expance</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('BranchExpense.index') }}">
+            <i class="fas fa-fw fa-map-marker"></i>
+            <span>Branch Expance</span></a>
     </li>
     <!-- Heading -->
 

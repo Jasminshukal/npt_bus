@@ -4,82 +4,30 @@ namespace App\Http\Controllers;
 
 use App\Models\BranchExpense;
 use Illuminate\Http\Request;
+use App\Models\Bus;
+use App\Models\Branch;
+
 
 class BranchExpenseController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $BranchExpense=BranchExpense::all();
+        $buses=Bus::all();
+        $branches=Branch::all();
+        return view('expanse.index',compact('buses','branches','BranchExpense'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function SelectDate()
     {
-        //
+        $buses=Bus::all();
+        $branches=Branch::all();
+        return view('expanse.index',compact('buses','branches'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\BranchExpense  $branchExpense
-     * @return \Illuminate\Http\Response
-     */
-    public function show(BranchExpense $branchExpense)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\BranchExpense  $branchExpense
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(BranchExpense $branchExpense)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\BranchExpense  $branchExpense
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, BranchExpense $branchExpense)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\BranchExpense  $branchExpense
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(BranchExpense $branchExpense)
-    {
-        //
-    }
 }

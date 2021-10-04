@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ExpenseController;
+use App\Http\Controllers\BranchExpenseController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,4 +22,6 @@ Auth::routes(['verify' => true]);
 Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('Expense', ExpenseController::class);
+    Route::resource('BusExpense', BranchExpenseController::class);
+    Route::resource('BranchExpense', BranchExpenseController::class);
 });
