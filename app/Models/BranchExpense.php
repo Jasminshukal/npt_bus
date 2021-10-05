@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class BranchExpense extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['expanse_date','branches_id'];
+
 }

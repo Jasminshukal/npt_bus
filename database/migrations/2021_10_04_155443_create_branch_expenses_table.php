@@ -15,15 +15,15 @@ class CreateBranchExpensesTable extends Migration
     {
         Schema::create('branch_expenses', function (Blueprint $table) {
             $table->id();
-            $table->date('expanse_date');
+            $table->date('expanse_date')->unique();
             $table->string('branch_name')->nullable();
-            $table->decimal('booking',8,2);
-            $table->string('no_seat');
-            $table->decimal('parsl',8,2);
-            $table->string('no_parsl');
-            $table->decimal('office_expanse',8,2);
-            $table->string('extra_income');
-            $table->string('remark');
+            $table->decimal('booking',8,2)->nullable();
+            $table->string('no_seat')->nullable();
+            $table->decimal('parsl',8,2)->nullable();
+            $table->string('no_parsl')->nullable();
+            $table->decimal('office_expanse',8,2)->nullable();
+            $table->string('extra_income')->nullable();
+            $table->string('remark')->nullable();
             $table->unsignedBigInteger('branches_id');
             $table->foreign('branches_id')->references('id')->on('branches')->onDelete('cascade');
             $table->timestamps();

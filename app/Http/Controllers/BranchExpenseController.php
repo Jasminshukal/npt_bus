@@ -26,7 +26,20 @@ class BranchExpenseController extends Controller
 
     public function store(Request $request)
     {
-        dd($request);
+        $validated = $request->validate([
+            'expanse_date' => 'required|date',
+            'branches_id' => 'required',
+        ]);
+
+        $flight = BranchExpense::firstOrCreate($validated);
+         return redirect(route('BranchExpense.edit',$flight->id));
+    }
+
+    public function edit($id)
+    {
+        $BranchExpense=BranchExpense::findOrFail($id);
+        $branches=Branch::all();
+        return view('expanse.edit',compact('branches','BranchExpense'));
     }
 
 }
