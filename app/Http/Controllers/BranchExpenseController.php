@@ -18,11 +18,10 @@ class BranchExpenseController extends Controller
         return view('expanse.index',compact('buses','branches','BranchExpense'));
     }
 
-    public function SelectDate()
+    public function add()
     {
-        $buses=Bus::all();
         $branches=Branch::all();
-        return view('expanse.index',compact('buses','branches'));
+        return view('expanse.add',compact('branches'));
     }
 
     public function store(Request $request)

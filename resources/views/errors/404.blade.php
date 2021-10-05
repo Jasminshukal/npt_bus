@@ -650,7 +650,7 @@ nav .menu .menu_icon:hover .icon:after {
 
      <nav>
          <div class="menu">
-             <p class="website_name"><a href="{{ url('/') }}">NPT BUS</a></p>
+             <p class="website_name"><a href="{{ url('admin/home') }}">NPT BUS</a></p>
              <div class="menu_links">
              </div>
 

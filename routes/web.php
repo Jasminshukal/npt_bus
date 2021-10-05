@@ -23,5 +23,8 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('Expense', ExpenseController::class);
     Route::resource('BusExpense', BranchExpenseController::class);
-    Route::resource('BranchExpense', BranchExpenseController::class);
+    // Route::resource('BranchExpense', BranchExpenseController::class);
+    Route::get('BranchExpense', [BranchExpenseController::class,'index'])->name('BranchExpense.index');
+    Route::get('BranchExpense/add', [BranchExpenseController::class,'add'])->name('BranchExpense.add');
+    Route::post('BranchExpense/store', [BranchExpenseController::class,'store'])->name('BranchExpense.store');
 });
