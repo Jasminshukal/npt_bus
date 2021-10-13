@@ -15,7 +15,7 @@ class CreateBranchExpensesTable extends Migration
     {
         Schema::create('branch_expenses', function (Blueprint $table) {
             $table->id();
-            $table->date('expanse_date')->unique();
+            $table->date('expanse_date');
             $table->string('branch_name')->nullable();
             $table->decimal('booking',8,2)->nullable();
             $table->string('no_seat')->nullable();

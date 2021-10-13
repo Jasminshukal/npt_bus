@@ -7,12 +7,11 @@ use Illuminate\Http\Request;
 use App\Models\Bus;
 use App\Models\Branch;
 
-
 class BranchExpenseController extends Controller
 {
     public function index()
     {
-        $BranchExpense=BranchExpense::all();
+        $BranchExpense=BranchExpense::with('Branch')->orderBy('expanse_date','DESC')->get();
         $buses=Bus::all();
         $branches=Branch::all();
         return view('expanse.index',compact('buses','branches','BranchExpense'));
@@ -40,6 +39,13 @@ class BranchExpenseController extends Controller
         $BranchExpense=BranchExpense::findOrFail($id);
         $branches=Branch::all();
         return view('expanse.edit',compact('branches','BranchExpense'));
+    }
+
+    public function update($id,Request $request)
+    {
+        $BranchExpense=BranchExpense::where('id', $id)
+            ->update($request->except('_token'));
+        return redirect(route('BranchExpense.index'));
     }
 
 }

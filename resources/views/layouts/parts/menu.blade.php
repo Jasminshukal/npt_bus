@@ -48,7 +48,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Custom Components:</h6>
                 <a class="collapse-item" href="/bus">Bus Master</a>
-                <a class="collapse-item" href="/branch">Branch Master</a>
+                <a class="collapse-item" href="{{ route('branch') }}">Branch Master</a>
             </div>
         </div>
     </li>

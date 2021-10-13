@@ -14,7 +14,8 @@ class BranchController extends Controller
      */
     public function index()
     {
-        //
+        $branch=Branch::all();
+        return view('branch.index',compact('branch'));
     }
 
     /**
@@ -24,7 +25,7 @@ class BranchController extends Controller
      */
     public function create()
     {
-        //
+        return view('branch.add');
     }
 
     /**
@@ -35,7 +36,8 @@ class BranchController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $branch=Branch::create($request->all());
+        dd($branch);
     }
 
     /**

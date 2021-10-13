@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\BranchExpenseController;
+use App\Http\Controllers\BranchController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,4 +30,9 @@ Route::prefix('admin')->middleware(['auth', 'verified'])->group(function () {
     Route::post('BranchExpense/store', [BranchExpenseController::class,'store'])->name('BranchExpense.store');
     Route::get('BranchExpense/edit/{id}', [BranchExpenseController::class,'edit'])->name('BranchExpense.edit');
     Route::post('BranchExpense/update/{id}', [BranchExpenseController::class,'update'])->name('BranchExpense.update');
+
+    Route::get('/branch',[BranchController::class,'index'])->name('branch');
+    Route::get('/branch/add',[BranchController::class,'create'])->name('branch.add');
+    Route::post('/branch/store',[BranchController::class,'store'])->name('branch.store');
+    Route::get('/branch/edit/{id}',[BranchController::class,'edit'])->name('branch.edit');
 });

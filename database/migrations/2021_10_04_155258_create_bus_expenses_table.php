@@ -15,7 +15,7 @@ class CreateBusExpensesTable extends Migration
     {
         Schema::create('bus_expenses', function (Blueprint $table) {
             $table->id();
-            $table->date('expanse_date')->unique();
+            $table->date('expanse_date');
             $table->string('name');
             $table->decimal('amount',8,2);
             $table->enum('operation',['Cr','Dr'])->default('Dr');
