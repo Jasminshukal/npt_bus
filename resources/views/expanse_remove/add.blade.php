@@ -11,7 +11,6 @@
     <div class="card-header py-3">
         <form action="{{ route('BranchExpense.store') }}" method="POST">
             @csrf
-
             <div class="row">
                 <div class="col-md-5">
                     <h6 class="m-0 font-weight-bold text-primary">Select Date:</h6>

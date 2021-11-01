@@ -17,6 +17,8 @@ class CreateBusExpensesTable extends Migration
             $table->id();
             $table->date('expanse_date');
             $table->string('name');
+            $table->string('routes');
+            $table->string('start_km');
             $table->decimal('amount',8,2);
             $table->enum('operation',['Cr','Dr'])->default('Dr');
             $table->string('remark');

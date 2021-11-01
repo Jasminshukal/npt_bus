@@ -14,13 +14,20 @@ class BranchExpenseController extends Controller
         $BranchExpense=BranchExpense::with('Branch')->orderBy('expanse_date','DESC')->get();
         $buses=Bus::all();
         $branches=Branch::all();
-        return view('expanse.index',compact('buses','branches','BranchExpense'));
+        return view('branch_expance.index',compact('buses','branches','BranchExpense'));
     }
 
-    public function add()
+    public function addExpanse()
     {
         $branches=Branch::all();
-        return view('expanse.add',compact('branches'));
+        dd($branches);
+        return view('branch_expance.add',compact('branches'));
+    }
+
+    public function create()
+    {
+        $branches=Branch::all();
+        return view('branch_expance.add',compact('branches'));
     }
 
     public function store(Request $request)
@@ -38,14 +45,19 @@ class BranchExpenseController extends Controller
     {
         $BranchExpense=BranchExpense::findOrFail($id);
         $branches=Branch::all();
-        return view('expanse.edit',compact('branches','BranchExpense'));
+        return view('branch_expance.edit',compact('branches','BranchExpense'));
     }
 
     public function update($id,Request $request)
     {
         $BranchExpense=BranchExpense::where('id', $id)
-            ->update($request->except('_token'));
+            ->update($request->except('_token','_method'));
         return redirect(route('BranchExpense.index'));
+    }
+
+    public function show()
+    {
+        # code...
     }
 
 }

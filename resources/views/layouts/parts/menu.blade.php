@@ -1,3 +1,6 @@
+@php
+$pagename=\Request::route()->getName();
+@endphp
  <!-- Sidebar -->
  <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
 
@@ -13,7 +16,7 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
+    <li class="nav-item @if(strpos($pagename, 'home') !== false) active @endif">
         <a class="nav-link" href="{{ route('home') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
@@ -25,12 +28,12 @@
     <div class="sidebar-heading">
         Interface
     </div>
-    <li class="nav-item">
+    <li class="nav-item @if(strpos($pagename, 'BusExpense') !== false) active @endif">
         <a class="nav-link" href="{{ route('BusExpense.index') }}">
             <i class="fas fa-fw fa-rupee-sign"></i>
             <span>Bus Expance</span></a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item @if(strpos($pagename, 'BranchExpense') !== false) active @endif">
         <a class="nav-link" href="{{ route('BranchExpense.index') }}">
             <i class="fas fa-fw fa-map-marker"></i>
             <span>Branch Expance</span></a>
@@ -47,8 +50,8 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Custom Components:</h6>
-                <a class="collapse-item" href="/bus">Bus Master</a>
-                <a class="collapse-item" href="{{ route('branch') }}">Branch Master</a>
+                <a class="collapse-item" href="{{ route('Bus.index') }}">Bus Master</a>
+                <a class="collapse-item" href="{{ route('Branch.index') }}">Branch Master</a>
             </div>
         </div>
     </li>

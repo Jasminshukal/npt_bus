@@ -14,7 +14,8 @@ class BusExpenseController extends Controller
      */
     public function index()
     {
-        //
+        $bus_expense = BusExpense::all();
+        return view('bus_expance.index',compact('bus_expense'));
     }
 
     /**

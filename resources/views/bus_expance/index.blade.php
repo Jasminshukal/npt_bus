@@ -3,8 +3,8 @@
 @section('content')
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Expance</h1>
-        <a href="{{route('BranchExpense.add')}}" class="d-none d-sm-inline-block btn btn-primary shadow-sm btn-circle" title="Add More Expance">
+    <h1 class="h3 mb-0 text-gray-800">Bus Expance</h1>
+        <a href="{{route('BranchExpense.create')}}" class="d-none d-sm-inline-block btn btn-primary shadow-sm btn-circle" title="Add More Expance">
             <i class="fas fa-plus fa-sm text-white-100"></i></a>
 </div>
 <div class="card shadow mb-4">
@@ -16,28 +16,26 @@
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>Date</th>
-                        <th>Branch</th>
-                        <th>Booking</th>
-                        <th>Parsl</th>
-                        <th>Office Expance</th>
-                        <th>Extra Income</th>
+                        <th>Number</th>
+                        <th>Driver</th>
+                        <th>Route</th>
+                        <th>Expance</th>
+                        <th>Income</th>
                         <th>Remark</th>
                     </tr>
                 </thead>
                 <tfoot>
                     <tr>
-                        <th>Date</th>
-                        <th>Branch</th>
-                        <th>Booking</th>
-                        <th>Parsl</th>
-                        <th>Office Expance</th>
-                        <th>Extra Income</th>
+                        <th>Number</th>
+                        <th>Driver</th>
+                        <th>Route</th>
+                        <th>Expance</th>
+                        <th>Income</th>
                         <th>Remark</th>
                     </tr>
                 </tfoot>
                 <tbody>
-                    @foreach ($BranchExpense as $item)
+                    @foreach ($bus_expense as $item)
                         <tr>
                             <td>{{ $item->expanse_date }}</td>
                             <td>{{ $item->branch->name }}</td>
@@ -46,7 +44,7 @@
                             <td>{{ $item->office_expanse}}</td>
                             <td>{{ $item->extra_income}}</td>
                             <td>
-                                    <a href="{{ route('BusExpense.edit',$item->id) }}" class="btn btn-primary btn-circle"><i class="fas fa-edit"></i></a>
+                                    <a href="{{ route('BranchExpense.edit',$item->id) }}" class="btn btn-primary btn-circle"><i class="fas fa-edit"></i></a>
                                     <a href="" title="{{ $item->remark}}" class="btn btn-success btn-circle "><i class="fa fa-question-circle" aria-hidden="true"></i></a>
                                     <a href="#" class="btn btn-danger btn-circle "><i class="fas fa-trash"></i></a>
                                     {{-- {!! btn_success_a("A","#","xs","not-square") !!} --}}
